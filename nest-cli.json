@@ -1,4 +1,30 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "apps/microservice-project/src",
+  "monorepo": true,
+  "root": "apps/microservice-project",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/microservice-project/tsconfig.app.json"
+  },
+  "projects": {
+    "microservice-project": {
+      "type": "application",
+      "root": "apps/microservice-project",
+      "entryFile": "main",
+      "sourceRoot": "apps/microservice-project/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/microservice-project/tsconfig.app.json"
+      }
+    },
+    "auth-service": {
+      "type": "application",
+      "root": "apps/auth-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/auth-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/auth-service/tsconfig.app.json"
+      }
+    }
+  }
 }
